@@ -10,7 +10,21 @@ public class Hotel {
     private int price;
     private List<Room> roomList;
 
-    public Hotel() {
+    public Hotel(String name, float stars, String city, int roomCapacity, int price, List<Room> roomList) {
+        this.name = name;
+        this.stars = stars;
+        this.city = city;
+        this.roomCapacity = roomCapacity;
+        this.price = price;
+        this.roomList = roomList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public float getStars() {
@@ -52,13 +66,4 @@ public class Hotel {
     public void setRoomList(List<Room> roomList) {
         this.roomList = roomList;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 }
