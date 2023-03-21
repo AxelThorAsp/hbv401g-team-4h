@@ -1,4 +1,4 @@
-package com.example.hbv401gteam4h;
+package hi.is.hbv401gteam4h;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
