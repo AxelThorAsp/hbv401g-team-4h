@@ -29,7 +29,7 @@ public class HotelRepository {
         List<Hotel> hotels = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(SQLStrings.SQLgetAllCountries)) {
+            ResultSet rs = st.executeQuery(SQLStrings.SQLgetAllHotels)) {
             while(rs.next()){
                 int id = rs.getInt(1);
                 String name = rs.getString(2);

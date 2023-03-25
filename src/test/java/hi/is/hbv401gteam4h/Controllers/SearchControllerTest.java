@@ -15,7 +15,7 @@ class SearchControllerTest {
 
     @Test
     void testSearchHotels() {
-        assertEquals(1,1);
+        assertTrue(true);
     }
 
     @Test
