@@ -7,15 +7,15 @@ import java.util.List;
 
 public class Room {
 
-    private int roomNum;
+    private int roomId;
     private RoomEnum type;
     private int bedCount;
     private List<Booking> bookingList;
 
 
 
-    public Room(int roomNum, RoomEnum type, int bedCount) {
-        this.roomNum = roomNum;
+    public Room(int roomId, RoomEnum type, int bedCount) {
+        this.roomId = roomId;
         this.type = type;
         this.bedCount = bedCount;
     }
@@ -31,18 +31,18 @@ public class Room {
     @Override
     public String toString() {
         return "Room{" +
-                "roomNum=" + roomNum +
+                "roomNum=" + roomId +
                 ", type=" + type +
                 ", bedCount=" + bedCount +
                 ", bookingList=" + bookingList +
                 '}';
     }
-    public int getRoomNum() {
-        return roomNum;
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setRoomNum(int roomNum) {
-        this.roomNum = roomNum;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
     public RoomEnum getType() {

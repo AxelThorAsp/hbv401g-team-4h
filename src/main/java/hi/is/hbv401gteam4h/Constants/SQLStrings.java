@@ -13,4 +13,11 @@ public class SQLStrings {
             FROM Rooms
             WHERE hotelid = ?
             """;
+    public static final String SQLgetBookings = """
+            SELECT *
+            FROM Bookings
+            WHERE room = ?
+            AND date(datefrom) >= date(?)
+            AND date(dateto) <= date(?)
+            """;
 }
