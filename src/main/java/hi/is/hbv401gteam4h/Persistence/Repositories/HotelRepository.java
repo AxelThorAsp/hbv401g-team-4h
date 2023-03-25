@@ -3,6 +3,7 @@ package hi.is.hbv401gteam4h.Persistence.Repositories;
 import hi.is.hbv401gteam4h.Persistence.Entities.Hotel;
 import hi.is.hbv401gteam4h.Constants.SQLStrings;
 import hi.is.hbv401gteam4h.Persistence.Entities.Room;
+import hi.is.hbv401gteam4h.Persistence.Enums.HotelPriceEnum;
 import hi.is.hbv401gteam4h.Persistence.Enums.RoomEnum;
 
 import java.sql.*;
@@ -18,6 +19,12 @@ public class HotelRepository {
             intToRoomEnum.put(type.ordinal() , type);
         }
     }
+    private static final Map<Integer, HotelPriceEnum> intToPriceEnum = new HashMap<Integer, HotelPriceEnum>();
+    static {
+        for (HotelPriceEnum type : HotelPriceEnum.values()) {
+            intToPriceEnum.put(type.ordinal() , type);
+        }
+    }
     public static List<Hotel> getAllHotels() {
         List<Hotel> hotels = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
@@ -27,11 +34,12 @@ public class HotelRepository {
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
                 float stars = rs.getFloat(3);
-                String city = rs.getString(4);
-                int numrooms = rs.getInt(5);
-                int hotelprice = rs.getInt(6);
-                hotels.add(new Hotel(id, name, stars, city,
-                        numrooms, hotelprice));
+                String country = rs.getString(4);
+                String city = rs.getString(5);
+                int numrooms = rs.getInt(6);
+                HotelPriceEnum hotelprice = intToPriceEnum.get(rs.getInt(7));
+                hotels.add(new Hotel(id, name, stars, country,
+                        city, numrooms, hotelprice));
             }
         }
         catch (SQLException e) {

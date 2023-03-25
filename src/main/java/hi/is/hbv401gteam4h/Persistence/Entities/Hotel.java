@@ -1,5 +1,6 @@
 package hi.is.hbv401gteam4h.Persistence.Entities;
 
+import hi.is.hbv401gteam4h.Persistence.Enums.HotelPriceEnum;
 import hi.is.hbv401gteam4h.Persistence.Repositories.HotelRepository;
 
 import java.util.List;
@@ -8,18 +9,22 @@ public class Hotel {
     private int id;
     private String name;
     private float stars;
+    private String country;
     private String city;
     private int roomCapacity;
-    private int price;
+
+    private HotelPriceEnum hotelPriceEnum;
     private List<Room> roomList;
 
-    public Hotel(int id, String name, float stars, String city, int roomCapacity, int price) {
+    public Hotel(int id, String name, float stars,
+                 String country, String city, int roomCapacity, HotelPriceEnum price) {
         this.id = id;
         this.name = name;
         this.stars = stars;
+        this.country = country;
         this.city = city;
         this.roomCapacity = roomCapacity;
-        this.price = price;
+        this.hotelPriceEnum = price;
         this.roomList = HotelRepository.getRoomsByHotel(id);
     }
 
@@ -29,12 +34,14 @@ public class Hotel {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", stars=" + stars +
+                ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
                 ", roomCapacity=" + roomCapacity +
-                ", price=" + price +
+                ", hotelPriceEnum=" + hotelPriceEnum +
                 ", roomList=" + roomList +
                 '}';
     }
+
     public int getId() {return id;}
     public void setId(int id){
         this.id = id;
@@ -54,6 +61,8 @@ public class Hotel {
     public void setStars(float stars) {
         this.stars = stars;
     }
+    public String getCountry() {return country;}
+    public void setCountry(String country) {this.country = country;}
 
     public String getCity() {
         return city;
@@ -71,12 +80,12 @@ public class Hotel {
         this.roomCapacity = roomCapacity;
     }
 
-    public int getPrice() {
-        return price;
+    public HotelPriceEnum getPrice() {
+        return hotelPriceEnum;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPrice(HotelPriceEnum price) {
+        this.hotelPriceEnum = price;
     }
 
     public List<Room> getRoomList() {
