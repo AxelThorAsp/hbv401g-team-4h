@@ -38,16 +38,16 @@ CREATE TABLE Reviews (
 );
 
 INSERT INTO Hotels (id, name, stars, country, city, numrooms, hotelprice)
-VALUES (1, 'The Plaza Hotel', 4.5, 'USA', 'New York', 200, 300),
-       (2, 'The Fairmont Royal York', 3.5, 'Canada', 'Toronto', 150, 250),
-       (3, 'Four Seasons Hotel George V', 5.0, 'France', 'Paris', 300, 500),
-       (4, 'The Westin Excelsior Rome', 4.0, 'Italy', 'Rome', 250, 400),
-       (5, 'Hotel Arts Barcelona', 3.0, 'Spain', 'Barcelona', 100, 150),
-       (6, 'The Ritz-Carlton Los Angeles', 3.5, 'USA', 'Los Angeles', 150, 200),
-       (7, 'Pan Pacific Vancouver', 4.0, 'Canada', 'Vancouver', 180, 300),
-       (8, 'Hyatt Regency Nice Palais de la Méditerranée', 4.5, 'France', 'Nice', 220, 400),
-       (9, 'Hotel Danieli, Venice', 3.0, 'Italy', 'Venice', 120, 150),
-       (10, 'The Ritz Madrid', 5.0, 'Spain', 'Madrid', 350, 600);
+VALUES (1, 'The Plaza Hotel', 4.5, 'USA', 'New York', 200, 0),
+       (2, 'The Fairmont Royal York', 3.5, 'Canada', 'Toronto', 150, 1),
+       (3, 'Four Seasons Hotel George V', 5.0, 'France', 'Paris', 300, 2),
+       (4, 'The Westin Excelsior Rome', 4.0, 'Italy', 'Rome', 250, 2),
+       (5, 'Hotel Arts Barcelona', 3.0, 'Spain', 'Barcelona', 100, 1),
+       (6, 'The Ritz-Carlton Los Angeles', 3.5, 'USA', 'Los Angeles', 150, 0),
+       (7, 'Pan Pacific Vancouver', 4.0, 'Canada', 'Vancouver', 180, 1),
+       (8, 'Hyatt Regency Nice Palais de la Méditerranée', 4.5, 'France', 'Nice', 220, 2),
+       (9, 'Hotel Danieli, Venice', 3.0, 'Italy', 'Venice', 120, 2),
+       (10, 'The Ritz Madrid', 5.0, 'Spain', 'Madrid', 350, 0);
 
 INSERT INTO Rooms (roomid, type, bedcount, hotelid)
 VALUES (1, 1, 1, 1),
