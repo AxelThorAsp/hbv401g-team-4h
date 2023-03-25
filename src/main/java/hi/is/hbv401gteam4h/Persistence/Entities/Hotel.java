@@ -3,6 +3,7 @@ package hi.is.hbv401gteam4h.Persistence.Entities;
 import java.util.List;
 
 public class Hotel {
+    private int id;
     private String name;
     private float stars;
     private String city;
@@ -10,7 +11,7 @@ public class Hotel {
     private int price;
     private List<Room> roomList;
 
-    public Hotel(String name, float stars, String city, int roomCapacity, int price, List<Room> roomList) {
+    public Hotel(int id, String name, float stars, String city, int roomCapacity, int price, List<Room> roomList) {
         this.name = name;
         this.stars = stars;
         this.city = city;
@@ -19,6 +20,22 @@ public class Hotel {
         this.roomList = roomList;
     }
 
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", stars=" + stars +
+                ", city='" + city + '\'' +
+                ", roomCapacity=" + roomCapacity +
+                ", price=" + price +
+                ", roomList=" + roomList +
+                '}';
+    }
+    public int getId() {return id;}
+    public void setId(int id){
+        this.id = id;
+    }
     public String getName() {
         return name;
     }

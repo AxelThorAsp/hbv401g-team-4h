@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class Connection {
+public class Connect {
     /**
      * Connect to a sample database
      */
@@ -13,7 +13,7 @@ public class Connection {
         Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:C:/sqlite/db/chinook.db";
+            String url = "jdbc:sqlite:src/db/db.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
 

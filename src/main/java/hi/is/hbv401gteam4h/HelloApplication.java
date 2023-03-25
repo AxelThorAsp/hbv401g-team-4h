@@ -1,10 +1,11 @@
 package hi.is.hbv401gteam4h;
 
+import hi.is.hbv401gteam4h.Persistence.Entities.Hotel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import hi.is.hbv401gteam4h.Persistence.Repositories.HotelRepository;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
@@ -17,7 +18,12 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         launch();
+    }
+    public static void main(String[] args) {
+        HotelRepository hr = new HotelRepository();
+        for(Hotel h: hr.getAllHotels())
+            System.out.println(h);
     }
 }
