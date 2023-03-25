@@ -1,5 +1,7 @@
 package hi.is.hbv401gteam4h.Persistence.Entities;
 
+import hi.is.hbv401gteam4h.Persistence.Repositories.HotelRepository;
+
 import java.util.List;
 
 public class Hotel {
@@ -11,13 +13,14 @@ public class Hotel {
     private int price;
     private List<Room> roomList;
 
-    public Hotel(int id, String name, float stars, String city, int roomCapacity, int price, List<Room> roomList) {
+    public Hotel(int id, String name, float stars, String city, int roomCapacity, int price) {
+        this.id = id;
         this.name = name;
         this.stars = stars;
         this.city = city;
         this.roomCapacity = roomCapacity;
         this.price = price;
-        this.roomList = roomList;
+        this.roomList = HotelRepository.getRoomsByHotel(id);
     }
 
     @Override

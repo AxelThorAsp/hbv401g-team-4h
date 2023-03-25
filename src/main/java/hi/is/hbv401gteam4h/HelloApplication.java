@@ -1,6 +1,8 @@
 package hi.is.hbv401gteam4h;
 
 import hi.is.hbv401gteam4h.Persistence.Entities.Hotel;
+import hi.is.hbv401gteam4h.Persistence.Entities.HotelIndex;
+import hi.is.hbv401gteam4h.Persistence.Entities.Room;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,8 +24,8 @@ public class HelloApplication extends Application {
         launch();
     }
     public static void main(String[] args) {
-        HotelRepository hr = new HotelRepository();
-        for(Hotel h: hr.getAllHotels())
+        for(Hotel h: HotelIndex.getHotelList()) {
             System.out.println(h);
+        }
     }
 }

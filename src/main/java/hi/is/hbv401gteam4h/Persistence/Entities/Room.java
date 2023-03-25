@@ -12,11 +12,12 @@ public class Room {
     private int bedCount;
     private List<Booking> bookingList;
 
-    public Room(int roomNum, RoomEnum type, int bedCount, List<Booking> bookingList) {
+
+
+    public Room(int roomNum, RoomEnum type, int bedCount) {
         this.roomNum = roomNum;
         this.type = type;
         this.bedCount = bedCount;
-        this.bookingList = bookingList;
     }
 
     public boolean isAvailableFromTo(Date dateFrom, Date dateTo) {
@@ -27,6 +28,15 @@ public class Room {
         bookingList.add(booking);
     }
 
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomNum=" + roomNum +
+                ", type=" + type +
+                ", bedCount=" + bedCount +
+                ", bookingList=" + bookingList +
+                '}';
+    }
     public int getRoomNum() {
         return roomNum;
     }

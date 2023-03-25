@@ -3,13 +3,22 @@ package hi.is.hbv401gteam4h.Persistence.Repositories;
 import hi.is.hbv401gteam4h.Persistence.Entities.Hotel;
 import hi.is.hbv401gteam4h.Constants.SQLStrings;
 import hi.is.hbv401gteam4h.Persistence.Entities.Room;
+import hi.is.hbv401gteam4h.Persistence.Enums.RoomEnum;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HotelRepository {
-    public List<Hotel> getAllHotels() {
+    private static final Map<Integer, RoomEnum> intToRoomEnum = new HashMap<Integer, RoomEnum>();
+    static {
+        for (RoomEnum type : RoomEnum.values()) {
+            intToRoomEnum.put(type.ordinal() , type);
+        }
+    }
+    public static List<Hotel> getAllHotels() {
         List<Hotel> hotels = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
             Statement st = con.createStatement();
@@ -22,13 +31,31 @@ public class HotelRepository {
                 int numrooms = rs.getInt(5);
                 int hotelprice = rs.getInt(6);
                 hotels.add(new Hotel(id, name, stars, city,
-                        numrooms, hotelprice, new ArrayList<Room>()));
+                        numrooms, hotelprice));
             }
         }
-
-         catch (SQLException e) {
+        catch (SQLException e) {
             e.printStackTrace();
         }
         return hotels;
+    }
+    public static List<Room> getRoomsByHotel(int hotelid) {
+        List<Room> rooms = new ArrayList<>();
+        try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
+            PreparedStatement ps = con.prepareStatement(SQLStrings.SQLgetRoomsByHotel)) {
+            ps.setInt(1, hotelid);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    int roomid = rs.getInt(1);
+                    RoomEnum type = intToRoomEnum.get(rs.getInt(2) - 1);
+                    int bedcount = rs.getInt(3);
+                    rooms.add(new Room(roomid, type, bedcount));
+                }
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rooms;
     }
 }

@@ -5,7 +5,12 @@ public class SQLStrings {
     public static String dbConnection = "jdbc:sqlite:src/db/db.db";
 
     public static String SQLgetAllCountries = """
-            SELECT * 
+            SELECT *
             FROM Hotels
+            """;
+    public static String SQLgetRoomsByHotel = """
+            SELECT *
+            FROM Rooms
+            WHERE hotelid = ?
             """;
 }

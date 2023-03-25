@@ -1,23 +1,12 @@
 package hi.is.hbv401gteam4h.Persistence.Entities;
 
+import hi.is.hbv401gteam4h.Persistence.Repositories.HotelRepository;
+
 import java.util.List;
 
 public class HotelIndex {
-    private List<Hotel> hotelList;
-
-    public HotelIndex(List<Hotel> hotelList) {
-        this.hotelList = hotelList;
-    }
-
-    public void addHotel(Hotel hotel) {
-        hotelList.add(hotel);
-    }
-
-    public List<Hotel> getHotelList() {
+    private static final List<Hotel> hotelList = HotelRepository.getAllHotels();
+    public static List<Hotel> getHotelList() {
         return hotelList;
-    }
-
-    public void setHotelList(List<Hotel> hotelList) {
-        this.hotelList = hotelList;
     }
 }
