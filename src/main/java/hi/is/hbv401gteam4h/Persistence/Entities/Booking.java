@@ -7,16 +7,26 @@ public class Booking {
     private Date dateTo;
     private String name;
     private String phoneNum;
-    private Room room;
+    private int roomid;
     private Review review;
 
-    public Booking(Date dateFrom, Date dateTo, String name, String phoneNum, Room room, Review review) {
+    public Booking(Date dateFrom, Date dateTo, String name, String phoneNum, int roomid) {
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.name = name;
         this.phoneNum = phoneNum;
-        this.room = room;
-        this.review = review;
+        this.roomid = roomid;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "dateFrom=" + dateFrom +
+                ", dateTo=" + dateTo +
+                ", name='" + name + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", roomid=" + roomid +
+                '}';
     }
 
     public Date getDateFrom() {
@@ -51,12 +61,12 @@ public class Booking {
         this.phoneNum = phoneNum;
     }
 
-    public Room getRoom() {
-        return room;
+    public int getRoomid() {
+        return roomid;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setRoomid(int roomid) {
+        this.roomid = roomid;
     }
 
     public Review getReview() {
