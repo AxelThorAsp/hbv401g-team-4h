@@ -34,4 +34,9 @@ class SearchControllerTest {
         List<Hotel> result = SearchController.searchHotels("USA", "New York",HotelPriceEnum.HIGH);
         assertEquals(0,result.size());
     }
+    @Test
+    void searchHotelName() {
+        List<Hotel> result = SearchController.searchHotelName("The Ritz Madrid");
+        assertEquals(1,result.size());
+    }
 }
