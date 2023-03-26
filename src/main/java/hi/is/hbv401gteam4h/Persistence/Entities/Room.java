@@ -10,8 +10,6 @@ public class Room {
     private int roomId;
     private RoomEnum type;
     private int bedCount;
-    private List<Booking> bookingList;
-
 
 
     public Room(int roomId, RoomEnum type, int bedCount) {
@@ -24,17 +22,12 @@ public class Room {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
-    public void addBooking(Booking booking) {
-        bookingList.add(booking);
-    }
-
     @Override
     public String toString() {
         return "Room{" +
                 "roomNum=" + roomId +
                 ", type=" + type +
                 ", bedCount=" + bedCount +
-                ", bookingList=" + bookingList +
                 '}';
     }
     public int getRoomId() {
@@ -61,11 +54,4 @@ public class Room {
         this.bedCount = bedCount;
     }
 
-    public List<Booking> getBookingList() {
-        return bookingList;
-    }
-
-    public void setBookingList(List<Booking> bookingList) {
-        this.bookingList = bookingList;
-    }
 }

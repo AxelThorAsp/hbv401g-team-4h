@@ -7,10 +7,7 @@ import hi.is.hbv401gteam4h.Persistence.Enums.HotelPriceEnum;
 import hi.is.hbv401gteam4h.Persistence.Enums.RoomEnum;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class HotelRepository {
     private static final Map<Integer, RoomEnum> intToRoomEnum = new HashMap<Integer, RoomEnum>();
@@ -26,10 +23,10 @@ public class HotelRepository {
         }
     }
     public static List<Hotel> getAllHotels() {
-        List<Hotel> hotels = new ArrayList<>();
+        List<Hotel> hotels = new LinkedList<>();
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(SQLStrings.SQLgetAllHotels)) {
+            ResultSet rs = st.executeQuery(SQLStrings.SQLGetAllHotels)) {
             while(rs.next()){
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
@@ -48,9 +45,9 @@ public class HotelRepository {
         return hotels;
     }
     public static List<Room> getRoomsByHotel(int hotelid) {
-        List<Room> rooms = new ArrayList<>();
+        List<Room> rooms = new LinkedList<>();
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
-            PreparedStatement ps = con.prepareStatement(SQLStrings.SQLgetRoomsByHotel)) {
+            PreparedStatement ps = con.prepareStatement(SQLStrings.SQLGetRoomsByHotel)) {
             ps.setInt(1, hotelid);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {

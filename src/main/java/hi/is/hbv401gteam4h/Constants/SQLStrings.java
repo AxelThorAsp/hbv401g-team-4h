@@ -4,20 +4,37 @@ public class SQLStrings {
 
     public static final String dbConnection = "jdbc:sqlite:src/db/db.db";
 
-    public static final String SQLgetAllHotels = """
+    public static final String SQLGetAllHotels = """
             SELECT *
             FROM Hotels
             """;
-    public static final String SQLgetRoomsByHotel = """
+    public static final String SQLGetAllBookings = """
+            SELECT *
+            FROM Bookings
+            """;
+    public static final String SQLGetRoomsByHotel = """
             SELECT *
             FROM Rooms
             WHERE hotelid = ?
             """;
-    public static final String SQLgetBookings = """
+    public static final String SQLGetBookings = """
             SELECT *
             FROM Bookings
             WHERE room = ?
             AND date(datefrom) >= date(?)
             AND date(dateto) <= date(?)
+            """;
+    public static final String SQLInsertBooking = """
+            INSERT INTO Bookings (datefrom, dateto, name, phonenum, room)
+            VALUES (?, ?, ?, ?, ?)
+            """;
+    public static final String SQLDeleteBooking = """
+            DELETE
+            FROM Bookings
+            WHERE datefrom = ?
+            AND dateto = ?
+            AND name = ?
+            AND phonenum = ?
+            AND room = ?
             """;
 }

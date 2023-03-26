@@ -29,10 +29,11 @@ public class HelloApplication extends Application {
         launch();
     }
     public static void main(String[] args) {
-        for (Room r: HotelRepository.getRoomsByHotel(1)) {
-            for (Booking b: BookingController.getAllBookings(r)) {
-                System.out.println(b);
-            }
+        Booking booking = new Booking(new Date(), new Date(111111111111L), "Axel", "8949408",5);
+        BookingController.addBooking(booking);
+        BookingController.deleteBooking(booking);
+        for (Booking b: BookingController.getAllBookings()) {
+            System.out.println(b);
         }
     }
 }
