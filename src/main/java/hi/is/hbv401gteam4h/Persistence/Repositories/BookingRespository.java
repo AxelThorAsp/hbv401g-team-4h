@@ -5,7 +5,6 @@ import hi.is.hbv401gteam4h.Persistence.Entities.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -51,13 +50,28 @@ public class BookingRespository {
         return bookings;
     }
 
-    public static List<Booking> getBookings(Room room, Date dateFrom, Date dateTo) {
-        List<Booking> bookings = new ArrayList<>();
+    public static List<Booking> getBooking(Room room, Date dateFrom, Date dateTo) {
+        List<Booking> bookings = new LinkedList<>();
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
              PreparedStatement ps = con.prepareStatement(SQLStrings.SQLGetBooking)) {
             ps.setInt(1, room.getRoomId());
             ps.setString(2, dateToString(dateFrom));
             ps.setString(3, dateToString(dateTo));
+            try (ResultSet rs = ps.executeQuery()) {
+                readBooking(bookings, rs);
+            }
+        }
+        catch (SQLException | ParseException e) {
+            e.printStackTrace();
+        }
+        assert bookings.size() <= 1;
+        return bookings;
+    }
+    public static List<Booking> getBookingsByRoom(Room room) {
+        List<Booking> bookings = new LinkedList<>();
+        try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
+             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLGetBookingsByRoom)) {
+            ps.setInt(1, room.getRoomId());
             try (ResultSet rs = ps.executeQuery()) {
                 readBooking(bookings, rs);
             }

@@ -10,16 +10,26 @@ import java.sql.*;
 import java.util.*;
 
 public class HotelRepository {
-    private static final Map<Integer, RoomEnum> intToRoomEnum = new HashMap<Integer, RoomEnum>();
+    private static final Map<Integer, RoomEnum> intToRoomEnum = new HashMap<>();
     static {
         for (RoomEnum type : RoomEnum.values()) {
             intToRoomEnum.put(type.ordinal() , type);
         }
     }
-    private static final Map<Integer, HotelPriceEnum> intToPriceEnum = new HashMap<Integer, HotelPriceEnum>();
+    private static final Map<Integer, HotelPriceEnum> intToPriceEnum = new HashMap<>();
     static {
         for (HotelPriceEnum type : HotelPriceEnum.values()) {
             intToPriceEnum.put(type.ordinal() , type);
+        }
+    }
+    private static void readHotel(List<Room> rooms, PreparedStatement ps) throws SQLException {
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                int roomid = rs.getInt(1);
+                RoomEnum type = intToRoomEnum.get(rs.getInt(2) - 1);
+                int bedcount = rs.getInt(3);
+                rooms.add(new Room(roomid, type, bedcount));
+            }
         }
     }
     public static List<Hotel> getAllHotels() {
@@ -49,18 +59,24 @@ public class HotelRepository {
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLGetRoomsByHotel)) {
             ps.setInt(1, hotelid);
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    int roomid = rs.getInt(1);
-                    RoomEnum type = intToRoomEnum.get(rs.getInt(2) - 1);
-                    int bedcount = rs.getInt(3);
-                    rooms.add(new Room(roomid, type, bedcount));
-                }
-            }
+            readHotel(rooms, ps);
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
         return rooms;
     }
+    public static List<Room> getRoomsByHotel(Hotel hotel) {
+        List<Room> rooms = new LinkedList<>();
+        try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
+             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLGetRoomsByHotel)) {
+            ps.setInt(1, hotel.getId());
+            readHotel(rooms, ps);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rooms;
+    }
+
 }

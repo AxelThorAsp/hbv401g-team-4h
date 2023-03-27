@@ -24,6 +24,11 @@ public class SQLStrings {
             AND datefrom = ?
             AND dateto = ?
             """;
+    public static final String SQLGetBookingsByRoom = """
+            SELECT *
+            FROM Bookings
+            WHERE room = ?
+            """;
     public static final String SQLInsertBooking = """
             INSERT INTO Bookings (datefrom, dateto, name, phonenum, room)
             VALUES (?, ?, ?, ?, ?)
