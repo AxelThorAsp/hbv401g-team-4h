@@ -54,7 +54,7 @@ public class BookingRespository {
     public static List<Booking> getBookings(Room room, Date dateFrom, Date dateTo) {
         List<Booking> bookings = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
-             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLGetBookings)) {
+             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLGetBooking)) {
             ps.setInt(1, room.getRoomId());
             ps.setString(2, dateToString(dateFrom));
             ps.setString(3, dateToString(dateTo));

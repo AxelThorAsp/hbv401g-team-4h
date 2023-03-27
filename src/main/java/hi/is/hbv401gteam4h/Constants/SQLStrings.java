@@ -17,12 +17,12 @@ public class SQLStrings {
             FROM Rooms
             WHERE hotelid = ?
             """;
-    public static final String SQLGetBookings = """
+    public static final String SQLGetBooking = """
             SELECT *
             FROM Bookings
             WHERE room = ?
-            AND date(datefrom) >= date(?)
-            AND date(dateto) <= date(?)
+            AND datefrom = ?
+            AND dateto = ?
             """;
     public static final String SQLInsertBooking = """
             INSERT INTO Bookings (datefrom, dateto, name, phonenum, room)
