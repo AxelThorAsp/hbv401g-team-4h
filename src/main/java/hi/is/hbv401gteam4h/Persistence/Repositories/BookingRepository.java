@@ -82,26 +82,24 @@ public class BookingRepository {
         return bookings;
     }
     public static int addBooking(Booking booking) {
-        int lines = 0;
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLInsertBooking)) {
-            lines = prepareBookingStatement(booking, ps);
+            return prepareBookingStatement(booking, ps);
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
-        return lines;
+        return -1;
     }
     public static int deleteBooking(Booking booking) {
-        int lines = 0;
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
              PreparedStatement ps = con.prepareStatement(SQLStrings.SQLDeleteBooking)) {
-            lines = prepareBookingStatement(booking, ps);
+            return prepareBookingStatement(booking, ps);
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
-        return lines;
+        return -1;
     }
 }
 
