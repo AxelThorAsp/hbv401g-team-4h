@@ -2,17 +2,7 @@ package hi.is.hbv401gteam4h;
 
 import hi.is.hbv401gteam4h.Controllers.BookingController;
 import hi.is.hbv401gteam4h.Persistence.Entities.Booking;
-import hi.is.hbv401gteam4h.Persistence.Entities.Hotel;
-import hi.is.hbv401gteam4h.Persistence.Entities.HotelIndex;
-import hi.is.hbv401gteam4h.Persistence.Entities.Room;
-import hi.is.hbv401gteam4h.Persistence.Repositories.BookingRespository;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import hi.is.hbv401gteam4h.Persistence.Repositories.HotelRepository;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 // extends Application {

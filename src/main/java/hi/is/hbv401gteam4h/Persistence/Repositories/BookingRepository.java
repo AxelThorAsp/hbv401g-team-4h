@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class BookingRespository {
+public class BookingRepository {
 
     private static Date stringToDate(String dateString) throws ParseException {
         return new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
@@ -81,7 +81,6 @@ public class BookingRespository {
         }
         return bookings;
     }
-
     public static int addBooking(Booking booking) {
         int lines = 0;
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
