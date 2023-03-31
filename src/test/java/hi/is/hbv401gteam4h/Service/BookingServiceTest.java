@@ -1,4 +1,4 @@
-package hi.is.hbv401gteam4h.Controllers;
+package hi.is.hbv401gteam4h.Service;
 
 import hi.is.hbv401gteam4h.Persistence.Entities.Booking;
 import hi.is.hbv401gteam4h.Persistence.Entities.Room;
@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BookingControllerTest {
+class BookingServiceTest {
     Room room;
     Booking booking;
 
@@ -30,27 +30,27 @@ class BookingControllerTest {
 
     @Test
     void addDeleteBooking() {
-        List<Booking> result1 = BookingController.getAllBookings(room);
-        BookingController.addBooking(booking);
-        BookingController.deleteBooking(booking);
-        List<Booking> result2 = BookingController.getAllBookings(room);
+        List<Booking> result1 = BookingService.getAllBookings(room);
+        BookingService.addBooking(booking);
+        BookingService.deleteBooking(booking);
+        List<Booking> result2 = BookingService.getAllBookings(room);
         assertEquals(result1.size(), result2.size());
     }
 
     @Test
     void getNonExistentBooking() {
-        List<Booking> result = BookingController.getAllBookings(room);
+        List<Booking> result = BookingService.getAllBookings(room);
         assertEquals(0, result.size());
     }
 
     @Test
     void getAllBookings() {
-        List<Booking> result = BookingController.getAllBookings();
+        List<Booking> result = BookingService.getAllBookings();
         assertEquals(10, result.size());
     }
     @Test
     void deleteNonExistentBooking() {
-        int result = BookingController.deleteBooking(booking);
+        int result = BookingService.deleteBooking(booking);
         assertEquals(0, result);
     }
 

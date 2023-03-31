@@ -1,14 +1,13 @@
-package hi.is.hbv401gteam4h.Controllers;
+package hi.is.hbv401gteam4h.Service;
 
 import hi.is.hbv401gteam4h.Persistence.Entities.Hotel;
 import hi.is.hbv401gteam4h.Persistence.Entities.HotelIndex;
 import hi.is.hbv401gteam4h.Persistence.Enums.HotelPriceEnum;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SearchController {
+public class SearchService {
     public static List<Hotel> searchHotels(String country, String city, HotelPriceEnum priceEnum) {
         List<Hotel> result = new LinkedList<>();
         for (Hotel h: HotelIndex.getHotelList()) {

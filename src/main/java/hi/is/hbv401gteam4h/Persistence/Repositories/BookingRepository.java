@@ -15,9 +15,11 @@ public class BookingRepository {
     private static Date stringToDate(String dateString) throws ParseException {
         return new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
     }
+
     private static String dateToString(Date date) {
         return new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
+
     private static int prepareBookingStatement(Booking booking, PreparedStatement ps) throws SQLException {
         ps.setString(1, dateToString(booking.getDateFrom()));
         ps.setString(2, dateToString(booking.getDateTo()));
@@ -26,6 +28,14 @@ public class BookingRepository {
         ps.setInt(5, booking.getRoomid());
         return ps.executeUpdate();
     }
+
+    private static int prepareReviewStatement(Review review, PreparedStatement ps) throws SQLException {
+        ps.setFloat(1, review.getStars());
+        ps.setString(2, review.getComment());
+        ps.setInt(3, review.getRoomid());
+        return ps.executeUpdate();
+    }
+
     private static void readBooking(List<Booking> bookings, ResultSet rs) throws SQLException, ParseException {
         while (rs.next()) {
             Date datefrom = stringToDate(rs.getString(1));
@@ -43,8 +53,7 @@ public class BookingRepository {
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(SQLStrings.SQLGetAllBookings)) {
             readBooking(bookings, rs);
-        }
-        catch (SQLException | ParseException e) {
+        } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
         return bookings;
@@ -60,13 +69,13 @@ public class BookingRepository {
             try (ResultSet rs = ps.executeQuery()) {
                 readBooking(bookings, rs);
             }
-        }
-        catch (SQLException | ParseException e) {
+        } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
         assert bookings.size() <= 1;
         return bookings;
     }
+
     public static List<Booking> getBookingsByRoom(Room room) {
         List<Booking> bookings = new LinkedList<>();
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
@@ -75,28 +84,37 @@ public class BookingRepository {
             try (ResultSet rs = ps.executeQuery()) {
                 readBooking(bookings, rs);
             }
-        }
-        catch (SQLException | ParseException e) {
+        } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
         return bookings;
     }
+
     public static int addBooking(Booking booking) {
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
-            PreparedStatement ps = con.prepareStatement(SQLStrings.SQLInsertBooking)) {
+             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLInsertBooking)) {
             return prepareBookingStatement(booking, ps);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return -1;
     }
+
     public static int deleteBooking(Booking booking) {
         try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
              PreparedStatement ps = con.prepareStatement(SQLStrings.SQLDeleteBooking)) {
             return prepareBookingStatement(booking, ps);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        catch (SQLException e) {
+        return -1;
+    }
+
+    public static int addReview(Review review) {
+        try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
+             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLAddReview)) {
+            return prepareReviewStatement(review, ps);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return -1;

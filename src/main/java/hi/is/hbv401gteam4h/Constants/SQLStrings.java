@@ -42,4 +42,8 @@ public class SQLStrings {
             AND phonenum = ?
             AND room = ?
             """;
+    public static final String SQLAddReview = """
+            INSERT INTO Reviews (stars, review, room)
+            VALUES (?, ?, ?)
+            """;
 }

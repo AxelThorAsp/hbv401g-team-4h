@@ -1,6 +1,6 @@
 package hi.is.hbv401gteam4h;
 
-import hi.is.hbv401gteam4h.Controllers.BookingController;
+import hi.is.hbv401gteam4h.Service.BookingService;
 import hi.is.hbv401gteam4h.Persistence.Entities.Booking;
 
 import java.util.Date;
@@ -21,9 +21,9 @@ public class HelloApplication {
     //}
     public static void main(String[] args) {
         Booking booking = new Booking(new Date(), new Date(111111111111L), "Axel", "8949408",5);
-        BookingController.addBooking(booking);
-        BookingController.deleteBooking(booking);
-        for (Booking b: BookingController.getAllBookings()) {
+        BookingService.addBooking(booking);
+        BookingService.deleteBooking(booking);
+        for (Booking b: BookingService.getAllBookings()) {
             System.out.println(b);
         }
     }

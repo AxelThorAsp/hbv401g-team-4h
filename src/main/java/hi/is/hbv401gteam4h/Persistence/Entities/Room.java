@@ -1,10 +1,9 @@
 package hi.is.hbv401gteam4h.Persistence.Entities;
 
-import hi.is.hbv401gteam4h.Controllers.BookingController;
+import hi.is.hbv401gteam4h.Service.BookingService;
 import hi.is.hbv401gteam4h.Persistence.Enums.RoomEnum;
 
 import java.util.Date;
-import java.util.List;
 
 import static hi.is.hbv401gteam4h.util.Util.between;
 
@@ -22,7 +21,7 @@ public class Room {
     }
 
     public boolean isAvailableFromTo(Date dateFrom, Date dateTo) {
-        for (Booking b: BookingController.getAllBookings(this)) {
+        for (Booking b: BookingService.getAllBookings(this)) {
             if (between(b.getDateFrom(), dateFrom, dateTo) || between(b.getDateTo(), dateFrom, dateTo))
                 return false;
         }
