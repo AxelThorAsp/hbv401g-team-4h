@@ -20,12 +20,12 @@
                <children>
                   <VBox prefWidth="500.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Pane prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
-                        <Pane layoutX="20.0" layoutY="20.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
-                        <Pane layoutX="15.0" layoutY="120.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
-                        <Pane layoutX="15.0" layoutY="225.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
-                        <Pane layoutX="15.0" layoutY="330.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
-                        <Pane layoutX="15.0" layoutY="363.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                        <Pane prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                        <Pane layoutX="20.0" layoutY="20.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                        <Pane layoutX="15.0" layoutY="120.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                        <Pane layoutX="15.0" layoutY="225.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                        <Pane layoutX="15.0" layoutY="330.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                        <Pane layoutX="15.0" layoutY="363.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -72,7 +72,12 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" text="Search 🔍" />
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Search 🔍" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Clear search ✕" />
+               </children>
+            </HBox>
          </children>
       </VBox>
       <Label layoutX="5.0" layoutY="15.0" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Hotels" />
