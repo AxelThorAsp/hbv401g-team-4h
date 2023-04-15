@@ -14,7 +14,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.is.hbv401gteam4h.HotelListController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutY="60.0" prefHeight="440.0" prefWidth="490.0" vbarPolicy="ALWAYS">
+      <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutY="60.0" prefHeight="440.0" prefWidth="490.0" vbarPolicy="ALWAYS">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="475.0">
                <children>

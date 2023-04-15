@@ -1,4 +1,4 @@
-package hi.is.hbv401gteam4h.Vidmot;
+package hi.is.hbv401gteam4h;
 
 import hi.is.hbv401gteam4h.Persistence.Entities.Hotel;
 import javafx.fxml.FXML;
@@ -10,11 +10,12 @@ import java.io.IOException;
 
 public class HotelListing extends AnchorPane {
 
-    // Viðmótshlutir
+    private Hotel hotel;
+
     @FXML
     private Label name;
     @FXML
-    private Label location;
+    private Label locations; // ekki hægt að nota "location"
     @FXML
     private Label price;
     @FXML
@@ -22,10 +23,11 @@ public class HotelListing extends AnchorPane {
     @FXML
     private Label numberOfRooms;
 
-    public HotelListing(Hotel hotel) {
+    public HotelListing(Hotel h) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hotellisting-view.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
+
         try {
             fxmlLoader.load();
         }
@@ -33,14 +35,15 @@ public class HotelListing extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        setListing(hotel);
+        this.hotel = h;
+        setListing();
     }
 
-    public void setListing(Hotel hotel) {
+    public void setListing() {
         name.setText(hotel.getName());
-        location.setText(hotel.getCity() + ", " + hotel.getCountry());
+        locations.setText(hotel.getCountry() + ", " + hotel.getCity());
         price.setText(hotel.getPrice().toString());
-        rating.setText(String.valueOf(hotel.getStars()));
-        numberOfRooms.setText(String.valueOf(hotel.getRoomCapacity()));
+        rating.setText("★ " + hotel.getStars());
+        numberOfRooms.setText(hotel.getRoomCapacity() + " herbergi");
     }
 }

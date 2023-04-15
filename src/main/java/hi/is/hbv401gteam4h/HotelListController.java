@@ -1,7 +1,7 @@
 package hi.is.hbv401gteam4h;
 import hi.is.hbv401gteam4h.Persistence.Entities.*;
 
-import hi.is.hbv401gteam4h.Vidmot.HotelListing;
+import hi.is.hbv401gteam4h.Persistence.Enums.HotelPriceEnum;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
@@ -33,12 +33,12 @@ public class HotelListController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //displayAllHotels(); // ERROR vegna þess að listi er tómur
+        displayAllHotels();
     }
 
     @FXML
     public void displayAllHotels() {
-        hotelList.getChildren().clear();
+        clearList();
         for (Hotel hotel : hotelIndex.getHotelList()) {
             hotelList.getChildren().add(new HotelListing(hotel));
         }
@@ -51,7 +51,6 @@ public class HotelListController implements Initializable {
     @FXML
     public void search() {
         System.out.println("Searching...");
-
         System.out.println("Searchbar: " + searchBar.getText() + ", low: " + lowPrice.isSelected() + ", mid: " + midPrice.isSelected() + ", high: " + highPrice.isSelected() + ", from: " + fromDate.getValue() + ", to: " + toDate.getValue());
 
         // Á eftir að útfæra
