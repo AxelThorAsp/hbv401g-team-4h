@@ -42,7 +42,7 @@
                   <Insets left="2.0" top="60.0" />
                </VBox.margin>
             </Label>
-            <TextField promptText="Type here...">
+            <TextField fx:id="searchBar" promptText="Type here...">
                <VBox.margin>
                   <Insets bottom="30.0" />
                </VBox.margin>
@@ -50,9 +50,9 @@
             <Label layoutX="12.0" layoutY="96.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Price" />
             <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <CheckBox mnemonicParsing="false" text="Low" />
-                  <CheckBox mnemonicParsing="false" text="Medium" />
-                  <CheckBox mnemonicParsing="false" text="High" />
+                  <CheckBox fx:id="lowPrice" mnemonicParsing="false" text="Low" />
+                  <CheckBox fx:id="midPrice" mnemonicParsing="false" text="Medium" />
+                  <CheckBox fx:id="highPrice" mnemonicParsing="false" text="High" />
                </children>
             </HBox>
             <Label layoutX="12.0" layoutY="70.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Date" />
@@ -61,20 +61,20 @@
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="200.0">
                      <children>
                         <Label text="From: " />
-                        <DatePicker AnchorPane.rightAnchor="5.0" />
+                        <DatePicker fx:id="fromDate" AnchorPane.rightAnchor="5.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="50.0" prefWidth="200.0">
                      <children>
                         <Label text="To:" />
-                        <DatePicker AnchorPane.rightAnchor="5.0" />
+                        <DatePicker fx:id="toDate" AnchorPane.rightAnchor="5.0" />
                      </children>
                   </AnchorPane>
                </children>
             </VBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button mnemonicParsing="false" text="Search 🔍" />
+                  <Button mnemonicParsing="false" onAction="#search" text="Search 🔍" />
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#displayAllHotels" text="Clear search ✕" />
                </children>
             </HBox>
