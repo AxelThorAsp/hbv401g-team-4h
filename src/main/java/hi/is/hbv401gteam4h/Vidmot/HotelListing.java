@@ -22,7 +22,7 @@ public class HotelListing extends AnchorPane {
     @FXML
     private Label numberOfRooms;
 
-    public HotelListing() {
+    public HotelListing(Hotel hotel) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hotellisting-view.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -32,6 +32,8 @@ public class HotelListing extends AnchorPane {
         catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+        setListing(hotel);
     }
 
     public void setListing(Hotel hotel) {

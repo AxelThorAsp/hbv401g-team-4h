@@ -17,6 +17,9 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 725, 500);
         stage.setTitle("Hotels");
         stage.setScene(scene);
+
+        stage.setResizable(false);
+
         stage.show();
     }
 

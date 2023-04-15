@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.is.hbv401gteam4h.HotelListController">
    <children>
       <ScrollPane hbarPolicy="NEVER" layoutY="60.0" prefHeight="440.0" prefWidth="490.0" vbarPolicy="ALWAYS">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="475.0">
                <children>
-                  <VBox prefWidth="500.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox fx:id="hotelList" prefWidth="500.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Pane prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
                         <Pane layoutX="20.0" layoutY="20.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
@@ -75,7 +75,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                <children>
                   <Button mnemonicParsing="false" text="Search 🔍" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Clear search ✕" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#displayAllHotels" text="Clear search ✕" />
                </children>
             </HBox>
          </children>
