@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -31,6 +32,16 @@ public class HotelListController implements Initializable {
     @FXML
     private DatePicker toDate;
 
+    private AnchorPane selectedPane;
+
+    public AnchorPane getSelectedPane() {
+        return selectedPane;
+    }
+
+    public void setSelectedPane(AnchorPane selectedPane) {
+        this.selectedPane = selectedPane;
+    }
+
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         displayAllHotels();
@@ -40,7 +51,7 @@ public class HotelListController implements Initializable {
     public void displayAllHotels() {
         clearList();
         for (Hotel hotel : hotelIndex.getHotelList()) {
-            hotelList.getChildren().add(new HotelListing(hotel));
+            hotelList.getChildren().add(new HotelListing(hotel, this));
         }
     }
 

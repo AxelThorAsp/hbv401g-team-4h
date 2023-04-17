@@ -23,7 +23,7 @@ public class HotelListing extends AnchorPane {
     @FXML
     private Label numberOfRooms;
 
-    public HotelListing(Hotel h) {
+    public HotelListing(Hotel h, HotelListController hlist) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hotellisting-view.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -37,6 +37,13 @@ public class HotelListing extends AnchorPane {
 
         this.hotel = h;
         setListing();
+        this.setOnMouseClicked(event -> {
+            if (hlist.getSelectedPane() != null) {
+                hlist.getSelectedPane().setStyle("-fx-background-color: lightgray;");
+            }
+            hlist.setSelectedPane(this);
+            this.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
+        });
     }
 
     public void setListing() {
