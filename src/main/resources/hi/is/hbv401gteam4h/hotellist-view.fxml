@@ -78,6 +78,7 @@
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#displayAllHotels" text="Clear search ✕" />
                </children>
             </HBox>
+            <Button mnemonicParsing="false" onAction="#switchToBookingView" text="Book now" />
          </children>
       </VBox>
       <Label layoutX="5.0" layoutY="15.0" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Hotels" />

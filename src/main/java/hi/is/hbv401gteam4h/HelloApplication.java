@@ -13,14 +13,19 @@ import java.util.Date;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hotellist-view.fxml.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 725, 500);
-        stage.setTitle("Hotels");
-        stage.setScene(scene);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hotellist-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 725, 500);
+            stage.setTitle("Hotels");
+            stage.setScene(scene);
 
-        stage.setResizable(false);
+            stage.setResizable(false);
 
-        stage.show();
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static void main(String[] args) {
