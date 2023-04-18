@@ -43,13 +43,13 @@ public class HotelListController implements Initializable {
     private Scene scene;
     private Parent root;
 
-    private AnchorPane selectedPane;
+    private HotelListing selectedPane;
 
-    public AnchorPane getSelectedPane() {
+    public HotelListing getSelectedPane() {
         return selectedPane;
     }
 
-    public void setSelectedPane(AnchorPane selectedPane) {
+    public void setSelectedPane(HotelListing selectedPane) {
         this.selectedPane = selectedPane;
     }
 
@@ -88,7 +88,10 @@ public class HotelListController implements Initializable {
             alert.showAndWait();
             return;
         }
-        root = FXMLLoader.load(getClass().getResource("booking-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("booking-view.fxml"));
+        root = loader.load();
+        BookingViewController bookingViewController = loader.getController();
+        bookingViewController.displayHotel(selectedPane);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

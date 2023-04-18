@@ -23,6 +23,10 @@ public class HotelListing extends AnchorPane {
     @FXML
     private Label numberOfRooms;
 
+    public Hotel getHotel() {
+        return hotel;
+    }
+
     public HotelListing(Hotel h, HotelListController hlist) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hotellisting-view.fxml"));
         fxmlLoader.setRoot(this);
@@ -53,4 +57,5 @@ public class HotelListing extends AnchorPane {
         rating.setText("★ " + hotel.getStars());
         numberOfRooms.setText(hotel.getRoomCapacity() + " herbergi");
     }
+
 }

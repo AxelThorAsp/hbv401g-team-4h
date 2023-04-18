@@ -30,16 +30,7 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", stars=" + stars +
-                ", country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                ", roomCapacity=" + roomCapacity +
-                ", hotelPriceEnum=" + hotelPriceEnum +
-                ", roomList=" + roomList +
-                '}';
+        return "" + name + ", " + city + " " + country ;
     }
 
     public int getId() {return id;}
