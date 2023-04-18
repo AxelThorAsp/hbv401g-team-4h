@@ -35,10 +35,7 @@ public class HotelListController implements Initializable {
     private CheckBox midPrice;
     @FXML
     private CheckBox highPrice;
-    @FXML
-    private DatePicker fromDate;
-    @FXML
-    private DatePicker toDate;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -73,7 +70,7 @@ public class HotelListController implements Initializable {
     @FXML
     public void search() {
         System.out.println("Searching...");
-        System.out.println("Searchbar: " + searchBar.getText() + ", low: " + lowPrice.isSelected() + ", mid: " + midPrice.isSelected() + ", high: " + highPrice.isSelected() + ", from: " + fromDate.getValue() + ", to: " + toDate.getValue());
+        System.out.println("Searchbar: " + searchBar.getText() + ", low: " + lowPrice.isSelected() + ", mid: " + midPrice.isSelected() + ", high: " + highPrice.isSelected());
 
         // Á eftir að útfæra
         // nota variables: searchBar, lowPrice, midPrice, highPrice, fromDate, toDate
@@ -88,12 +85,16 @@ public class HotelListController implements Initializable {
             alert.showAndWait();
             return;
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("booking-view.fxml"));
+
+
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("booking.fxml"));
         root = loader.load();
         BookingViewController bookingViewController = loader.getController();
-        bookingViewController.displayHotel(selectedPane);
+        bookingViewController.setHotel(selectedPane.getHotel());
+        bookingViewController.displayHotel();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root, 725, 500);
         stage.setScene(scene);
         stage.show();
     }

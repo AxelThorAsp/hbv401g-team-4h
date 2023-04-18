@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -55,21 +54,10 @@
                   <CheckBox fx:id="highPrice" mnemonicParsing="false" text="High" />
                </children>
             </HBox>
-            <Label layoutX="12.0" layoutY="70.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Date" />
             <VBox prefHeight="100.0" prefWidth="100.0">
                <children>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="200.0">
-                     <children>
-                        <Label text="From: " />
-                        <DatePicker fx:id="fromDate" AnchorPane.rightAnchor="5.0" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="50.0" prefWidth="200.0">
-                     <children>
-                        <Label text="To:" />
-                        <DatePicker fx:id="toDate" AnchorPane.rightAnchor="5.0" />
-                     </children>
-                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="200.0" />
+                  <AnchorPane prefHeight="50.0" prefWidth="200.0" />
                </children>
             </VBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
