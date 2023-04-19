@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefHeight="70.0" prefWidth="450.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 10px;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="465.0">
+      <children>
+         <TextArea fx:id="textArea" layoutX="-2.0" layoutY="33.0" mouseTransparent="true" prefHeight="88.0" prefWidth="465.0" wrapText="true">
+            <font>
+               <Font size="19.0" />
+            </font>
+         </TextArea>
+         <Label fx:id="hotelNameLabel" layoutX="14.0" layoutY="1.0" prefHeight="17.0" prefWidth="163.0" text="Label">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Label>
+      </children>
+   </AnchorPane>
+</fx:root>

@@ -104,9 +104,6 @@ public class HotelListController implements Initializable {
             alert.showAndWait();
             return;
         }
-
-
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("booking.fxml"));
         root = loader.load();
         BookingViewController bookingViewController = loader.getController();
@@ -122,6 +119,15 @@ public class HotelListController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mybooking-view.fxml"));
         root = loader.load();
         //MyBookingController myBookingController = loader.getController();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 725, 500);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToReviews(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("reviewlist.fxml"));
+        root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 725, 500);
         stage.setScene(scene);

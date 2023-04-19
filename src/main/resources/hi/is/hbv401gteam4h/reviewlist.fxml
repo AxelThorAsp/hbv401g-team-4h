@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.is.hbv401gteam4h.ReviewListController">
+   <children>
+      <Label layoutX="17.0" layoutY="24.0" prefHeight="35.0" prefWidth="236.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="Reviews" />
+      <VBox layoutX="16.0" layoutY="56.0" prefHeight="330.0" prefWidth="569.0">
+         <children>
+            <Pane prefHeight="10.0" prefWidth="569.0" />
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="279.0" prefWidth="569.0" vbarPolicy="ALWAYS">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="555.0">
+                     <children>
+                        <VBox fx:id="reviewList" prefHeight="515.0" prefWidth="549.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Pane prefHeight="80.0" prefWidth="545.0" style="-fx-background-color: lightgray;" />
+                              <Pane layoutX="20.0" layoutY="20.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                              <Pane layoutX="15.0" layoutY="120.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                              <Pane layoutX="15.0" layoutY="225.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                              <Pane layoutX="15.0" layoutY="330.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                              <Pane layoutX="15.0" layoutY="363.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <Button fx:id="backToMain" layoutX="467.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchToHotelList" text="Back to main menu" />
+   </children>
+</Pane>

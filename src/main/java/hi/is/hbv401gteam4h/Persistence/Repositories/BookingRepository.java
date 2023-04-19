@@ -1,6 +1,7 @@
 package hi.is.hbv401gteam4h.Persistence.Repositories;
 import hi.is.hbv401gteam4h.Constants.SQLStrings;
 import hi.is.hbv401gteam4h.Persistence.Entities.*;
+import hi.is.hbv401gteam4h.ReviewListing;
 
 import java.sql.*;
 import java.text.ParseException;
@@ -134,6 +135,20 @@ public class BookingRepository {
             e.printStackTrace();
         }
         return hotelName;
+    }
+
+    public static List<ReviewDisplay> getAllReviews() {
+        List<ReviewDisplay> ret = new LinkedList<>();
+        try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
+             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLGetAllReviews)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                ret.add(new ReviewDisplay(rs.getString(1),rs.getString(2)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
     }
 }
 

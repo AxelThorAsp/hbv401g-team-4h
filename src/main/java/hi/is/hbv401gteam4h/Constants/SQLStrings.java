@@ -56,4 +56,10 @@ public class SQLStrings {
             AND Bookings.phonenum = ?
             """;
 
+    public static final String SQLGetAllReviews = """
+            SELECT name, review FROM Reviews
+            JOIN Rooms ON Reviews.room = Rooms.roomid
+            JOIN Hotels H ON H.id = Rooms.hotelid;
+            """;
+
 }
