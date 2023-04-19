@@ -2,10 +2,14 @@ package hi.is.hbv401gteam4h.Service;
 
 import hi.is.hbv401gteam4h.Persistence.Entities.Hotel;
 import hi.is.hbv401gteam4h.Persistence.Entities.HotelIndex;
+import hi.is.hbv401gteam4h.Persistence.Entities.Room;
 import hi.is.hbv401gteam4h.Persistence.Enums.HotelPriceEnum;
+import hi.is.hbv401gteam4h.Persistence.Enums.RoomEnum;
+import hi.is.hbv401gteam4h.Persistence.Repositories.HotelRepository;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchService {
     public static List<Hotel> searchHotels(String country, String city, HotelPriceEnum priceEnum) {
@@ -39,5 +43,12 @@ public class SearchService {
                 result.add(h);
         }
         return result;
+    }
+
+    public static List<Room> searchRooms(Hotel hotel, RoomEnum price, int numBeds) {
+        return BookingService.findRooms(hotel).stream()
+                .filter(r -> r.getType() == price)
+                .filter(r -> r.getBedCount() == numBeds)
+                .collect(Collectors.toList());
     }
 }
