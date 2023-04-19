@@ -135,7 +135,7 @@ public class BookingViewController implements Initializable {
         alert.showAndWait();
     }
     private void showSuccess() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Succeess");
         alert.setHeaderText(null);
         alert.setContentText("You have booked your room");
