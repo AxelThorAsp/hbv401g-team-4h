@@ -13,19 +13,24 @@
       <Label layoutX="17.0" layoutY="24.0" prefHeight="35.0" prefWidth="236.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="Reviews" />
       <VBox layoutX="16.0" layoutY="56.0" prefHeight="330.0" prefWidth="569.0">
          <children>
-            <Pane prefHeight="10.0" prefWidth="569.0" />
+            <Pane prefHeight="53.0" prefWidth="569.0" />
             <ScrollPane focusTraversable="false" hbarPolicy="NEVER" prefHeight="279.0" prefWidth="569.0" vbarPolicy="ALWAYS">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="555.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2216.0" prefWidth="571.0">
                      <children>
-                        <VBox fx:id="reviewList" prefHeight="515.0" prefWidth="549.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="reviewList" layoutY="1.0" prefHeight="514.0" prefWidth="555.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
                            <children>
-                              <Pane prefHeight="80.0" prefWidth="545.0" style="-fx-background-color: lightgray;" />
+                              <Pane prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
                               <Pane layoutX="20.0" layoutY="20.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
                               <Pane layoutX="15.0" layoutY="120.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
                               <Pane layoutX="15.0" layoutY="225.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
                               <Pane layoutX="15.0" layoutY="330.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
-                              <Pane layoutX="15.0" layoutY="363.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;" />
+                              <Pane layoutX="15.0" layoutY="363.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: lightgray;">
+                                 <children>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

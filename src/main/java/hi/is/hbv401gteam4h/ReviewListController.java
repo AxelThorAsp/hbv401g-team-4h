@@ -35,6 +35,8 @@ public class ReviewListController implements Initializable {
         stage.show();
     }
     private void displayAllReviews() {
+        reviewList.getChildren().clear();
+        System.out.println(BookingRepository.getAllReviews().size());
         for (var r: BookingRepository.getAllReviews()) {
             reviewList.getChildren().add(new ReviewListing(r, this));
         }

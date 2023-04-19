@@ -12,7 +12,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hi.is.hbv401gteam4h.BookingViewController">
    <children>
-      <Label layoutX="7.0" layoutY="14.0" prefHeight="35.0" prefWidth="236.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="Bóka herbergi" />
+      <Label layoutX="7.0" layoutY="14.0" prefHeight="35.0" prefWidth="236.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="Book room" />
       <VBox layoutX="15.0" layoutY="49.0" prefHeight="335.0" prefWidth="571.0">
          <children>
             <Pane prefHeight="60.0" prefWidth="571.0">
@@ -25,24 +25,24 @@
                </children></Pane>
             <ButtonBar prefHeight="40.0" prefWidth="272.0">
                <buttons>
-                  <Label prefHeight="28.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Tegund herbergis" />
+                  <Label prefHeight="28.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Type of room" />
                   <ChoiceBox fx:id="roomEnumDropDown" prefHeight="18.0" prefWidth="592.0" />
                </buttons>
             </ButtonBar>
             <ButtonBar layoutX="10.0" layoutY="66.0" prefHeight="40.0" prefWidth="272.0">
                <buttons>
-                  <Label prefHeight="28.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Fjöldi rúma" />
+                  <Label prefHeight="28.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Number of beds" />
                   <ChoiceBox fx:id="roomNumBeds" prefHeight="18.0" prefWidth="592.0" />
                </buttons>
             </ButtonBar>
-            <Label layoutX="10.0" layoutY="146.0" prefHeight="28.0" prefWidth="132.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Dagsetning" />
-            <DatePicker fx:id="dateFrom" promptText="Frá dags" />
-            <DatePicker fx:id="dateTo" promptText="Til dags" />
-            <Label layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="65.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Nafn" />
+            <Label layoutX="10.0" layoutY="146.0" prefHeight="28.0" prefWidth="132.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Date" />
+            <DatePicker fx:id="dateFrom" promptText="From" />
+            <DatePicker fx:id="dateTo" promptText="To" />
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="65.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Name" />
             <TextField fx:id="nameInp" />
-            <Label layoutX="10.0" layoutY="146.0" prefHeight="28.0" prefWidth="176.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Tölvupóstfang" />
+            <Label layoutX="10.0" layoutY="146.0" prefHeight="28.0" prefWidth="176.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Phonenumber" />
             <TextField fx:id="phoneNumInp" />
-            <Button fx:id="bookButton" mnemonicParsing="false" text="Ganga frá bókun" />
+            <Button fx:id="bookButton" mnemonicParsing="false" text="Book" />
          </children>
       </VBox>
       <Button fx:id="backToMain" layoutX="441.0" layoutY="19.0" mnemonicParsing="false" text="Go back to main menu" />
