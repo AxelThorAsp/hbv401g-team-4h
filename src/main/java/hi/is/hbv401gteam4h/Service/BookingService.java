@@ -47,5 +47,9 @@ public class BookingService {
         }
         return retval;
     }
+
+    public static String getHotelNameFromBooking(Booking b) { return BookingRepository.getHotelNameFromBooking(b);}
+
+
 }
 

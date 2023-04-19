@@ -46,4 +46,14 @@ public class SQLStrings {
             INSERT INTO Reviews (stars, review, room)
             VALUES (?, ?, ?)
             """;
+
+    public static final String SQLGetHotelNameFromBooking = """
+            SELECT Hotels.name
+            FROM Hotels
+            INNER JOIN Rooms ON Hotels.id = Rooms.hotelid
+            INNER JOIN Bookings ON Rooms.roomid = Bookings.room
+            WHERE Bookings.name = ?
+            AND Bookings.phonenum = ?
+            """;
+
 }

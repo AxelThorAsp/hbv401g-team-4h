@@ -2,6 +2,7 @@ package hi.is.hbv401gteam4h;
 import hi.is.hbv401gteam4h.Persistence.Entities.*;
 
 import hi.is.hbv401gteam4h.Persistence.Enums.HotelPriceEnum;
+import hi.is.hbv401gteam4h.Service.SearchService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HotelListController implements Initializable {
@@ -69,11 +72,27 @@ public class HotelListController implements Initializable {
 
     @FXML
     public void search() {
-        System.out.println("Searching...");
-        System.out.println("Searchbar: " + searchBar.getText() + ", low: " + lowPrice.isSelected() + ", mid: " + midPrice.isSelected() + ", high: " + highPrice.isSelected());
+        List<HotelPriceEnum> selectedPrices = new ArrayList<>();
+        if (lowPrice.isSelected()) {
+            selectedPrices.add(HotelPriceEnum.LOW);
+        }
+        if (midPrice.isSelected()) {
+            selectedPrices.add(HotelPriceEnum.MEDIUM);
+        }
+        if (highPrice.isSelected()) {
+            selectedPrices.add(HotelPriceEnum.HIGH);
+        }
 
-        // Á eftir að útfæra
-        // nota variables: searchBar, lowPrice, midPrice, highPrice, fromDate, toDate
+        SearchService searchService = new SearchService();
+        List<Hotel> foundHotels = searchService.optionalSearch(searchBar.getText(), selectedPrices);
+        displayHotels(foundHotels);
+    }
+
+    private void displayHotels(List<Hotel> hotels) {
+        clearList();
+        for (Hotel hotel : hotels) {
+            hotelList.getChildren().add(new HotelListing(hotel, this));
+        }
     }
 
     public void switchToBookingView(ActionEvent event) throws IOException {
@@ -93,6 +112,16 @@ public class HotelListController implements Initializable {
         BookingViewController bookingViewController = loader.getController();
         bookingViewController.setHotel(selectedPane.getHotel());
         bookingViewController.displayHotel();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 725, 500);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToMyBookingView(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("mybooking-view.fxml"));
+        root = loader.load();
+        //MyBookingController myBookingController = loader.getController();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 725, 500);
         stage.setScene(scene);

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -36,14 +37,14 @@
       </ScrollPane>
       <VBox layoutX="500.0" prefHeight="500.0" prefWidth="220.0">
          <children>
-            <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="Search by name or location">
+            <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="Search by name">
                <VBox.margin>
                   <Insets left="2.0" top="60.0" />
                </VBox.margin>
             </Label>
             <TextField fx:id="searchBar" promptText="Type here...">
                <VBox.margin>
-                  <Insets bottom="30.0" />
+                  <Insets bottom="15.0" />
                </VBox.margin>
             </TextField>
             <Label layoutX="12.0" layoutY="96.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Price" />
@@ -54,19 +55,30 @@
                   <CheckBox fx:id="highPrice" mnemonicParsing="false" text="High" />
                </children>
             </HBox>
-            <VBox prefHeight="100.0" prefWidth="100.0">
-               <children>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="200.0" />
-                  <AnchorPane prefHeight="50.0" prefWidth="200.0" />
-               </children>
-            </VBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+            <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#search" text="Search 🔍" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#displayAllHotels" text="Clear search ✕" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#displayAllHotels" text="Clear search ✕" visible="false" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#switchToBookingView" text="Book now" />
+            <Separator prefWidth="200.0" />
+            <HBox layoutX="10.0" layoutY="225.0" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#switchToBookingView" text="Book now">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#switchToMyBookingView" text="My bookings">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </HBox>
          </children>
       </VBox>
       <Label layoutX="5.0" layoutY="15.0" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Hotels" />

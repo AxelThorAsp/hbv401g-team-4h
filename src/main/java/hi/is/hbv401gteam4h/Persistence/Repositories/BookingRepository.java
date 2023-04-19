@@ -119,6 +119,22 @@ public class BookingRepository {
         }
         return -1;
     }
+
+    public static String getHotelNameFromBooking(Booking b) {
+        String hotelName = "";
+        try (Connection con = DriverManager.getConnection(SQLStrings.dbConnection);
+             PreparedStatement ps = con.prepareStatement(SQLStrings.SQLGetHotelNameFromBooking)) {
+             ps.setString(1, b.getName());
+             ps.setString(2, b.getPhoneNum());
+             ResultSet rs = ps.executeQuery();
+             if (rs.next()) {
+                hotelName = rs.getString("name");
+             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hotelName;
+    }
 }
 
 

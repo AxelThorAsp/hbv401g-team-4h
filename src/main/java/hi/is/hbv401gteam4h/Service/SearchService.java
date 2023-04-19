@@ -51,4 +51,16 @@ public class SearchService {
                 .filter(r -> r.getBedCount() == numBeds)
                 .collect(Collectors.toList());
     }
+
+    public static List<Hotel> optionalSearch(String name, List<HotelPriceEnum> priceEnums) {
+        List<Hotel> result = new LinkedList<>();
+        for (Hotel h: HotelIndex.getHotelList()) {
+            if (priceEnums != null && !priceEnums.isEmpty() && !priceEnums.contains(h.getPrice()))
+                continue;
+            if (name != null && !name.isEmpty() && !h.getName().toLowerCase().matches(".*" + name.toLowerCase() + ".*"))
+                continue;
+            result.add(h);
+        }
+        return result;
+    }
 }
