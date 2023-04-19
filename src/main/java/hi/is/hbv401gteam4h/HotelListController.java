@@ -98,4 +98,14 @@ public class HotelListController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void switchToMyBookingView(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("mybooking-view.fxml"));
+        root = loader.load();
+        //MyBookingController myBookingController = loader.getController();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 725, 500);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

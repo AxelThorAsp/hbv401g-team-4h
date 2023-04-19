@@ -24,4 +24,8 @@ public class BookingService {
         return BookingRepository.deleteBooking(booking);
     }
     public static int addReview(Review review) {return BookingRepository.addReview(review);}
+
+    public static String getHotelNameFromBooking(Booking b) { return BookingRepository.getHotelNameFromBooking(b);}
+
+
 }
