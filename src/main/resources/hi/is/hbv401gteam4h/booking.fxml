@@ -40,10 +40,11 @@
             <DatePicker fx:id="dateTo" promptText="Til dags" />
             <Label layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="65.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Nafn" />
             <TextField fx:id="nameInp" />
-            <Label layoutX="10.0" layoutY="146.0" prefHeight="28.0" prefWidth="176.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="PhoneNum" />
+            <Label layoutX="10.0" layoutY="146.0" prefHeight="28.0" prefWidth="176.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Tölvupóstfang" />
             <TextField fx:id="phoneNumInp" />
             <Button fx:id="bookButton" mnemonicParsing="false" text="Ganga frá bókun" />
          </children>
       </VBox>
+      <Button fx:id="backToMain" layoutX="441.0" layoutY="19.0" mnemonicParsing="false" text="Go back to main menu" />
    </children>
 </Pane>

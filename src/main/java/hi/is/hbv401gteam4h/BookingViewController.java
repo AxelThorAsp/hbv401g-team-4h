@@ -47,6 +47,8 @@ public class BookingViewController implements Initializable {
     @FXML
     private TextField phoneNumInp;
     @FXML
+    private Button backToMain;
+    @FXML
     private Button bookButton;
     private RoomEnum selectedRoomEnum;
     private Integer[] rooms = {1,2};
@@ -58,6 +60,7 @@ public class BookingViewController implements Initializable {
         roomNumBeds.getItems().addAll(rooms);
         roomNumBeds.setOnAction(this::getRoomNum);
         bookButton.setOnAction(this::confirmBooking);
+        backToMain.setOnAction(this::switchToHotelList);
     }
     public BookingViewController() {
     }
@@ -76,12 +79,17 @@ public class BookingViewController implements Initializable {
         this.hotel = hotel;
     }
 
-    public void switchToHotelList(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("hotellist-view.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void switchToHotelList(ActionEvent event){
+        try {
+            root = FXMLLoader.load(getClass().getResource("hotellist-view.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void confirmBooking(ActionEvent event) {
@@ -93,8 +101,6 @@ public class BookingViewController implements Initializable {
             Hotel hotelSelected = this.hotel;
             String name = nameInp.getText();
             String phonenum = phoneNumInp.getText();
-            System.out.println(hotelSelected);
-            System.out.println("hello world");
             List<Room> rooms = BookingService.getAvailableRooms(hotelSelected, roomPrice, numBeds, df, dt);
             if (rooms.isEmpty()){
                 showNoRoomsFound();

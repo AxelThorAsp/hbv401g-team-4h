@@ -1,6 +1,7 @@
 package hi.is.hbv401gteam4h;
 
 import hi.is.hbv401gteam4h.Persistence.Entities.Booking;
+import hi.is.hbv401gteam4h.Persistence.Entities.Review;
 import hi.is.hbv401gteam4h.Persistence.Enums.RoomEnum;
 import hi.is.hbv401gteam4h.Service.BookingService;
 import javafx.event.ActionEvent;
@@ -10,13 +11,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MyBookingController implements Initializable {
@@ -89,7 +90,36 @@ public class MyBookingController implements Initializable {
 
     public void unBook(ActionEvent event) throws IOException {
         Booking booking = selectedPane.getBooking();
-        BookingService.deleteBooking(booking);
-        getBookings();
+        if (booking != null) {
+            BookingService.deleteBooking(booking);
+            getBookings();
+        }
+        else {
+            // TODO show error;
+        }
+    }
+
+    public void addReview(ActionEvent event) throws IOException {
+        Booking booking = selectedPane.getBooking();
+        if (booking != null) {
+            String rev;
+            TextInputDialog tiDialog = new TextInputDialog();
+            tiDialog.setTitle("Add review");
+            tiDialog.setHeaderText("Enter your review");
+            tiDialog.setContentText("Review: ");
+            Optional<String> resp = tiDialog.showAndWait();
+            if(resp.isPresent()) {
+                rev = resp.get();
+                BookingService.addReview(new Review(5, rev, booking.getRoomid()));
+                showSuccess();
+            }
+        }
+    }
+    private void showSuccess() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Review added");
+        alert.setHeaderText(null);
+        alert.setContentText("Thank you for your feedback");
+        alert.showAndWait();
     }
 }
