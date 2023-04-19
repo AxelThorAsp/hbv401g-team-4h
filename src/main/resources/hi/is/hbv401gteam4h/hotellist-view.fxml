@@ -58,7 +58,7 @@
             <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#search" text="Search 🔍" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#displayAllHotels" text="Clear search ✕" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#displayAllHotels" text="Clear search ✕" visible="false" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
